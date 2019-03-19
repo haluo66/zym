@@ -20,6 +20,7 @@ public class PersonController {
     @RequestMapping("/findAll")
     public ModelAndView findAll(){
         System.out.println("查询了所有！");
+        System.out.println("idea第一次提交");
         ModelAndView mv =new ModelAndView("/person/list");
         mv.addObject("pList",personService.findAll());
         return mv;
