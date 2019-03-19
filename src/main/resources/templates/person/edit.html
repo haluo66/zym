@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="UTF-8" >
+    <title>Title</title>
+    <style type="text/css">
+        table{
+            border: black 1px solid;
+            width: 500px;
+        }
+        td{
+            border: aqua 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <table align="center">
+        <tr>
+            <td>编号</td>
+            <td th:text="${p.id}"></td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td><input type="text" th:value="${p.name}" name="name"></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td >
+                <span th:if="${p.sex=='男'}">
+                    <input type="radio" checked="checked"  value="男"  name="sex">男&nbsp;&nbsp;
+                    <input type="radio"  value="女" name="sex">女
+                </span>
+                <span th:if="${p.sex=='女'}">
+                    <input type="radio"   value="男"  name="sex">男&nbsp;&nbsp;
+                    <input type="radio" checked="checked" value="女" name="sex">女
+                </span>
+
+            </td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td><input type="text" th:value="${p.age}" name="age"></td>
+        </tr>
+        <tr>
+            <td>生日</td>
+            <td><input type="text" th:value="${#dates.format(p.birthDay,'yyyy-MM-dd')}" name="birthDay"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" value="提交"></td>
+        </tr>
+    </table>
+</body>
+</html>

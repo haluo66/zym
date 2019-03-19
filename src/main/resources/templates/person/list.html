@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        table{
+            border: black 1px solid;
+            width: 800px;
+        }
+        td{
+            border: aqua 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <a th:href="person/toadd">新增数据</a>
+    <table align="center">
+        <tr >
+            <td>编号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年龄</td>
+            <td>生日</td>
+            <td>操作1</td>
+            <td>操作2</td>
+        </tr>
+        <tr th:each="p:${pList}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.sex}"></td>
+            <td th:text="${p.age}"></td>
+            <td th:text="${#dates.format(p.birthDay,'yyyy-MM-dd')}"></td>
+            <td><a th:href="'person/find/'+${p.id}">修改</a></td>
+            <td><a href="#">删除</a></td>
+        </tr>
+    </table>
+</body>
+</html>

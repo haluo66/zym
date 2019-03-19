@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /s5
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydatabase?userUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT
+    username: root
+    password: accp
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.hr.springboot5.entity
